@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Окна todo-list</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Окна, tasks, todo, list">
+		<meta name="description" content="Окна todo-list">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="wrapper">
+				<span>«Окна todo-list»</span>
+			</div>
+		</header>
+		<section id="taskentry">
+			<form id="taskentryform" action="#" method="post">
+				<input type="text" id="task" placeholder="Введите задачу..."/>
+				<input type="submit" value="Создать"/>
+			</form>
+		</section>
+		<section id="tasks">
+			<div id="tasks-caption">Обновляемый список задач</div>
+			<div id="tasks-wrapper">
+			</div>
+		</section>
+		<footer>
+			<div class="copyright">
+				&copy; 2018 «Окна todo-list»
+			</div>
+		</footer>
+		<script>
+        	$(document).ready(function() {
+        		gettasks();
+        		
+        		setInterval(gettasks, 60000);
+        		
+        		$('#taskentryform').on('submit', function(e) {
+					e.preventDefault();
+					var task = $('#task',this).val();
+					if( task != ''){
+						$('#task',this).val('');
+						$.ajax({
+							url: "process/addtask.php",
+							type: "POST",
+							data: {task:task},
+							success: function()
+							{
+								gettasks();
+							}
+						});
+					}	
+				});
+				$('#tasks').on('submit','.taskqueryform', function(e) {
+					e.preventDefault();
+					var taskid = $('#taskid',this).val();
+					$.ajax({
+						url: "process/deletetask.php",
+						type: "POST",
+						data: {taskid:taskid},
+						success: function()
+						{
+							gettasks();
+						}
+					});
+				});
+				
+        	});
+        	
+        	function gettasks(){
+        		$('#tasks-wrapper').load('process/gettasks.php');	
+        	};
+    	</script>
+	</body>
+</html>

@@ -1,0 +1,110 @@
+body{
+	background-color:#38b2d5;
+}
+
+input[type=text]{
+	background-color:transparent;
+	font-size:20pt;
+	color:#fff !important;
+	border:gray 2px solid;
+	width:600px;
+}
+
+#taskentryform input[type=submit]{
+	background-color:#dadada;
+	font-size:15pt;
+	border:#dadada 1px solid;
+	height:35px;
+}
+#taskentryform{
+	
+}
+
+
+header, section, footer{
+	max-width: 980px;
+	background-color:#40a2be;
+	clear:both;
+	margin-left:auto;
+	margin-right:auto;
+	font-family:Verdana;
+}
+
+#taskentry{
+	padding-top:10px;
+}
+
+#tasks{
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+#tasks-caption{
+	display:block;
+	width:300px;
+	margin-left:210px;
+	padding:10px;
+	font-size:15pt;
+}
+
+header{
+	margin-top:10px;
+	height:120px;
+	background-color:#2f8fab;
+}
+header .wrapper{
+	position:relative;
+	padding-top:20px;
+	height:90px;
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+header span{
+	font-family:Arial;
+	display:block;
+	font-size:35pt;
+	color:#fff;
+}
+
+#taskentryform, #tasks-wrapper {
+	background-color:#77b7c9;
+	width:700px;
+	display:block;
+	clear:both;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.taskqueryform{
+	width:700px;
+	height:20px;
+	display:block;
+}
+
+.taskqueryform:hover{
+	background-color:#da8431;
+	color:#fff; 
+}
+
+.taskqueryform .taskinfo{
+	display:block;
+	float:left;
+	width:633px;
+}
+
+.taskqueryform input{
+	display:block;
+	background-color:#dadada;
+	border:1px solid #808080;
+}
+
+footer{
+	background-color:#979797;
+	height:30px;
+}
+footer .copyright{
+	margin:5px;
+	float:right;
+}
